@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class PlayerManager {
 
-    private static HashMap<String, BSPlayer> onlinePlayers = new HashMap<>();
+    private static HashMap<String, BSPlayer> onlinePlayers = new HashMap<String, BSPlayer>();
 
 
     public static void addPlayer( BSPlayer player ) {

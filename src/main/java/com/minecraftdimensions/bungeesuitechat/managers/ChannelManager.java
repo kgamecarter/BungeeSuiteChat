@@ -17,7 +17,7 @@ import java.util.*;
 
 public class ChannelManager {
     public static boolean receivedChannels = false;
-    private static ArrayList<Channel> channels = new ArrayList<>();
+    private static ArrayList<Channel> channels = new ArrayList<Channel>();
 
     public static void addChannel( String channel ) {
         Channel c = new Channel( channel );
@@ -39,7 +39,7 @@ public class ChannelManager {
     }
 
     public static ArrayList<Channel> getDefaultChannels() {
-        ArrayList<Channel> chan = new ArrayList<>();
+        ArrayList<Channel> chan = new ArrayList<Channel>();
         for ( Channel c : channels ) {
             if ( c.isDefault ) {
                 chan.add( c );
@@ -80,7 +80,7 @@ public class ChannelManager {
     }
 
     public static void cleanChannels() {
-        ArrayList<Channel> chans = new ArrayList<>();
+        ArrayList<Channel> chans = new ArrayList<Channel>();
         chans.addAll( getDefaultChannels() );
         for ( BSPlayer p : PlayerManager.getOnlinePlayers() ) {
             Channel pc = p.getChannel();
@@ -104,7 +104,7 @@ public class ChannelManager {
     }
 
     public static Collection<Player> getServerPlayers() {
-        Collection<Player> serverPlayers = new ArrayList<>();
+        Collection<Player> serverPlayers = new ArrayList<Player>();
         for ( Player p : Bukkit.getOnlinePlayers() ) {
             if ( p.hasPermission( "bungeesuite.chat.channel.server" ) ) {
                 serverPlayers.add( p );
@@ -114,7 +114,7 @@ public class ChannelManager {
     }
 
     public static Collection<Player> getGlobalPlayers() {
-        Collection<Player> globalPlayers = new ArrayList<>();
+        Collection<Player> globalPlayers = new ArrayList<Player>();
         for ( Player p : Bukkit.getOnlinePlayers() ) {
             if ( p.hasPermission( "bungeesuite.chat.channel.global" ) ) {
                 globalPlayers.add( p );
@@ -124,7 +124,7 @@ public class ChannelManager {
     }
 
     public static Collection<BSPlayer> getBSGlobalPlayers() {
-        Collection<BSPlayer> globalPlayers = new ArrayList<>();
+        Collection<BSPlayer> globalPlayers = new ArrayList<BSPlayer>();
         for ( Player p : Bukkit.getOnlinePlayers() ) {
             if ( p.hasPermission( "bungeesuite.chat.channel.global" ) ) {
                 globalPlayers.add( PlayerManager.getPlayer( p ) );
@@ -134,7 +134,7 @@ public class ChannelManager {
     }
 
     public static Collection<Player> getAdminPlayers() {
-        Collection<Player> serverPlayers = new ArrayList<>();
+        Collection<Player> serverPlayers = new ArrayList<Player>();
         for ( Player p : Bukkit.getOnlinePlayers() ) {
             if ( p.hasPermission( "bungeesuite.chat.channel.admin" ) ) {
                 serverPlayers.add( p );
@@ -144,7 +144,7 @@ public class ChannelManager {
     }
 
     public static Collection<BSPlayer> getBSAdminPlayers() {
-        Collection<BSPlayer> serverPlayers = new ArrayList<>();
+        Collection<BSPlayer> serverPlayers = new ArrayList<BSPlayer>();
         for ( Player p : Bukkit.getOnlinePlayers() ) {
             if ( p.hasPermission( "bungeesuite.chat.channel.admin" ) ) {
                 serverPlayers.add( PlayerManager.getPlayer( p ) );
@@ -154,7 +154,7 @@ public class ChannelManager {
     }
 
     public static Collection<Player> getIgnores( Player player ) {
-        Collection<Player> ignoringPlayers = new ArrayList<>();
+        Collection<Player> ignoringPlayers = new ArrayList<Player>();
         for ( BSPlayer p : PlayerManager.getOnlinePlayers() ) {
             if ( p.ignoringPlayer( player.getName() ) ) {
                 ignoringPlayers.add( p.getPlayer() );
@@ -164,7 +164,7 @@ public class ChannelManager {
     }
 
     public static Collection<BSPlayer> getBSIgnores( String player ) {
-        Collection<BSPlayer> ignoringPlayers = new ArrayList<>();
+        Collection<BSPlayer> ignoringPlayers = new ArrayList<BSPlayer>();
         for ( BSPlayer p : PlayerManager.getOnlinePlayers() ) {
             if ( p.ignoringPlayer( player ) ) {
                 ignoringPlayers.add( p );
@@ -228,7 +228,7 @@ public class ChannelManager {
     }
 
     public static void getGlobalChat( String player, String message ) {
-        Collection<BSPlayer> recipients = new ArrayList<>();
+        Collection<BSPlayer> recipients = new ArrayList<BSPlayer>();
         recipients.addAll( ChannelManager.getBSGlobalPlayers() );
         recipients.removeAll( getBSIgnores( player ) );
         for ( BSPlayer p : recipients ) {
@@ -255,7 +255,7 @@ public class ChannelManager {
     }
 
     public static void getAdminChat( String message ) {
-        Collection<BSPlayer> recipients = new ArrayList<>();
+        Collection<BSPlayer> recipients = new ArrayList<BSPlayer>();
         recipients.addAll( ChannelManager.getBSAdminPlayers() );
         for ( BSPlayer p : recipients ) {
             p.sendMessage( message );

@@ -128,7 +128,7 @@ public class MessageListener implements PluginMessageListener {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            final ArrayList<String> ignores = new ArrayList<>();
+            final ArrayList<String> ignores = new ArrayList<String>();
             Collections.addAll( ignores, ignoresString );
             final String name = player;
             BSPlayer p = PlayerManager.getPlayer( player );

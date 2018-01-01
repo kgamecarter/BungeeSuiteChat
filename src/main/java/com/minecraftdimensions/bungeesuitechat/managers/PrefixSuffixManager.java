@@ -7,8 +7,8 @@ import java.util.HashMap;
 
 public class PrefixSuffixManager {
 
-    public static HashMap<String, String> prefixes = new HashMap<>();
-    public static HashMap<String, String> suffixes = new HashMap<>();
+    public static HashMap<String, String> prefixes = new HashMap<String, String>();
+    public static HashMap<String, String> suffixes = new HashMap<String, String>();
     public static boolean prefix;
     public static boolean suffix;
 
